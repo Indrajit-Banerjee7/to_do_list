@@ -16,10 +16,11 @@ class _ChangingPartState extends State<ChangingPart> {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisSize: MainAxisSize.min,
       children: [
-        SmallContainer(Text('txt1')),
-        SmallContainer(Text('txt2')),
-        SmallContainer(Text('txt3')),
+        // SmallContainer(Text('txt1')),
+        // SmallContainer(Text('txt2')),
+        // SmallContainer(Text('txt3')),
         ...dataArr.map((e) => SmallContainer(Text(e))),
          Row(
                   mainAxisAlignment: MainAxisAlignment.center,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:to_do_list/addscreen.dart';
 import 'package:to_do_list/changing_part.dart';
+import 'package:to_do_list/data/data_array.dart';
 
 class ToDoApp extends StatefulWidget {
   const ToDoApp({Key? key}) : super(key: key);
@@ -24,7 +25,14 @@ class _ToDoAppState extends State<ToDoApp> {
 
  void onTapAdd(){
   setState(() {
-    activesccreen = AddScreen() ;  //////////////////////
+    activesccreen =  AddScreen(callbk) ;  //////////////////////
+  });
+ }
+
+ void callbk(String e){
+  dataArr.add(e);
+  setState(() {
+    activesccreen = ChangingPart(onTapAdd);
   });
  }
 
@@ -45,15 +53,17 @@ class _ToDoAppState extends State<ToDoApp> {
             ),
           ),
           child: Center(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Container(child: activesccreen),
-              ],
-            ),
+            child: activesccreen ,
           ),
         ),
       ),
     );
   }
 }
+
+// Column(
+//               mainAxisSize: MainAxisSize.min,
+//               children: [
+//                 Container(child: activesccreen),
+//               ],
+//             ),
